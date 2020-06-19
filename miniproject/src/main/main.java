@@ -3,8 +3,7 @@ package main;
 public class main {
 
 	public static void main(String[] args) {
-		// Å×½ºÆ®_ÀºÁ¤;
-		//±êÇãºê ¾î·Æ ¤Ð¤Ð
+		// í•œê¸€ í…ŒìŠ¤íŠ¸
 
 	}
 
