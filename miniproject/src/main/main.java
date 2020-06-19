@@ -3,8 +3,9 @@ package main;
 public class main {
 
 	public static void main(String[] args) {
-		// Å×½ºÆ®_ÀºÁ¤;
-		//±êÇãºê ¾î·Æ ¤Ğ¤Ğ
+		// í…ŒìŠ¤íŠ¸_ì€ì •;
+		//ê¹ƒí—ˆë¸Œ ì–´ë µ ã… ã… 
+		//í…ŒìŠ¤íŠ¸333
 
 	}
 
