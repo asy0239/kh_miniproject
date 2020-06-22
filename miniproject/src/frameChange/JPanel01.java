@@ -17,12 +17,12 @@ public class JPanel01 extends JPanel{
         this.win = win;
         setLayout(null);
         
-        jButton1 = new JButton("ȸ������");
+        jButton1 = new JButton("로그인");
         jButton1.setSize(120,20);        
         jButton1.setLocation(10, 10);
         add(jButton1);
         
-        jButton2 = new JButton("�α���");
+        jButton2 = new JButton("회원가입");
         jButton2.setSize(120,20);
         jButton2.setLocation(150, 10);
         add(jButton2);

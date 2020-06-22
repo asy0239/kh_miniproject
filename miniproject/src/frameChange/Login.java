@@ -20,7 +20,7 @@ public class Login extends JPanel{
 	    public Login(MainFrame win) {
 	        setLayout(null);
 	        this.win = win;
-	        JLabel lblLbl = new JLabel("���̵�:");
+	        JLabel lblLbl = new JLabel("로그인 :");
 	        lblLbl.setBounds(31, 40, 67, 15);
 	        add(lblLbl);
 	        
@@ -29,7 +29,7 @@ public class Login extends JPanel{
 	        add(textField);
 	        textField.setColumns(10);
 	        
-	        JLabel lblLbl_1 = new JLabel("��ȣ:");
+	        JLabel lblLbl_1 = new JLabel("회원가입:");
 	        lblLbl_1.setBounds(31, 84, 67, 15);
 	        add(lblLbl_1);
 	        
@@ -37,7 +37,7 @@ public class Login extends JPanel{
 	        passwordField.setBounds(123, 84, 116, 21);
 	        add(passwordField);
 	        
-	        JButton btn = new JButton("��ư");
+	        JButton btn = new JButton("회원가입");
 	        btn.setSize(70,20);
 	        btn.setLocation(10,10);
 	        add(btn);

@@ -27,13 +27,13 @@ public class MainTown extends JPanel{
 		
 		add(label);
 		
-        JButton btn = new JButton("��ư");
+        JButton btn = new JButton("게임");
         btn.setSize(70,20);
         btn.setLocation(10,10);
         add(btn);
         btn.addActionListener(new MyActionListener());
         
-        JButton btn2 = new JButton("�α���ȭ��");
+        JButton btn2 = new JButton("로그인");
         btn2.setSize(70,20);
         btn.setLocation(100, 10);
         add(btn2);

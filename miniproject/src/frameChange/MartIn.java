@@ -25,7 +25,7 @@ public class MartIn extends JPanel{
 		
 		add(label);
         
-        JButton btn = new JButton("��ư");
+        JButton btn = new JButton("버튼");
         btn.setSize(70,20);
         btn.setLocation(10,10);
         add(btn);
