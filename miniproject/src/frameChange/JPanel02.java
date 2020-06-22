@@ -1,4 +1,4 @@
-package miniProjectGame.frameChange;
+package frameChange;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +18,7 @@ public class JPanel02 extends JPanel{
     public JPanel02(MainFrame win) {
         setLayout(null);
         this.win = win;
-        JLabel lblLbl = new JLabel("¾ÆÀÌµð:");
+        JLabel lblLbl = new JLabel("ï¿½ï¿½ï¿½Ìµï¿½:");
         lblLbl.setBounds(31, 40, 67, 15);
         add(lblLbl);
         
@@ -27,7 +27,7 @@ public class JPanel02 extends JPanel{
         add(textField);
         textField.setColumns(10);
         
-        JLabel lblLbl_1 = new JLabel("¾ÏÈ£:");
+        JLabel lblLbl_1 = new JLabel("ï¿½ï¿½È£:");
         lblLbl_1.setBounds(31, 84, 67, 15);
         add(lblLbl_1);
         
@@ -35,13 +35,13 @@ public class JPanel02 extends JPanel{
         passwordField.setBounds(123, 84, 116, 21);
         add(passwordField);
         
-        JButton btn = new JButton("¹öÆ°");
+        JButton btn = new JButton("ï¿½ï¿½Æ°");
         btn.setSize(70,20);
         btn.setLocation(10,10);
         add(btn);
         btn.addActionListener(new MyActionListener());
     }
-    class MyActionListener implements ActionListener {         // ¹öÆ° Å° ´­¸®¸é ÆÐ³Î 1¹ø È£Ãâ
+    class MyActionListener implements ActionListener {         // ï¿½ï¿½Æ° Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ 1ï¿½ï¿½ È£ï¿½ï¿½
         @Override
         public void actionPerformed(ActionEvent e) {
             win.change("panel01");

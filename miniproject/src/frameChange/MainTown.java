@@ -1,4 +1,4 @@
-package miniProjectGame.frameChange;
+package frameChange;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import miniProjectGame.frameChange.JPanel02.MyActionListener;
+import frameChange.JPanel02.MyActionListener;
 
 public class MainTown extends JPanel{
     private MainFrame win;
@@ -27,13 +27,13 @@ public class MainTown extends JPanel{
 		
 		add(label);
 		
-        JButton btn = new JButton("¹öÆ°");
+        JButton btn = new JButton("ï¿½ï¿½Æ°");
         btn.setSize(70,20);
         btn.setLocation(10,10);
         add(btn);
         btn.addActionListener(new MyActionListener());
         
-        JButton btn2 = new JButton("·Î±×ÀÎÈ­¸é");
+        JButton btn2 = new JButton("ï¿½Î±ï¿½ï¿½ï¿½È­ï¿½ï¿½");
         btn2.setSize(70,20);
         btn.setLocation(100, 10);
         add(btn2);
@@ -47,7 +47,7 @@ public class MainTown extends JPanel{
 		});
         
     }
-    class MyActionListener implements ActionListener {         // ¹öÆ° Å° ´­¸®¸é ÆÐ³Î 1¹ø È£Ãâ
+    class MyActionListener implements ActionListener {         // ï¿½ï¿½Æ° Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ 1ï¿½ï¿½ È£ï¿½ï¿½
         @Override
         public void actionPerformed(ActionEvent e) {
             win.change("martin");

@@ -1,4 +1,4 @@
-package miniProjectGame.frameChange;
+package frameChange;
 
 public class ChangePanel{
 	

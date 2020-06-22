@@ -1,4 +1,4 @@
-package miniProjectGame.frameChange;
+package frameChange;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,12 +17,12 @@ public class JPanel01 extends JPanel{
         this.win = win;
         setLayout(null);
         
-        jButton1 = new JButton("È¸¿ø°¡ÀÔ");
+        jButton1 = new JButton("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         jButton1.setSize(120,20);        
         jButton1.setLocation(10, 10);
         add(jButton1);
         
-        jButton2 = new JButton("·Î±×ÀÎ");
+        jButton2 = new JButton("ï¿½Î±ï¿½ï¿½ï¿½");
         jButton2.setSize(120,20);
         jButton2.setLocation(150, 10);
         add(jButton2);
@@ -45,7 +45,7 @@ public class JPanel01 extends JPanel{
 			}
 		});
     }
-//    class MyActionListener implements ActionListener {    // ¹öÆ° Å° ´­¸®¸é ÆÐ³Î 2¹ø È£Ãâ
+//    class MyActionListener implements ActionListener {    // ï¿½ï¿½Æ° Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ 2ï¿½ï¿½ È£ï¿½ï¿½
 //        @Override
 //        public void actionPerformed(ActionEvent e) {
 //            win.change("panel02");

@@ -6,16 +6,16 @@ public class MaketGameManager {
 	private int userCalc;
 	
 	
-	public void makeGame();
-	public void makeGuest();
-	public void checkItem();
-	public void autoClean();
-	public void autoSetItem();
-	public void autoCalc();
-	public void putItem();
-	public void putItem();
-	public boolean correct();
-	public void printReceipt();
-	
+//	public void makeGame();
+//	public void makeGuest();
+//	public void checkItem();
+//	public void autoClean();
+//	public void autoSetItem();
+//	public void autoCalc();
+//	public void putItem();
+//	public void putItem();
+//	public boolean correct();
+//	public void printReceipt();
+//	
 	
 }
