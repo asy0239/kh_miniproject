@@ -1,4 +1,4 @@
-package frameChange;
+package miniProjectGame.frameChange;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -9,12 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import frameChange.MainTown.MyActionListener;
+import miniProjectGame.frameChange.MainTown.MyActionListener;
 
 public class MartIn extends JPanel{
-    private MainFrame win;
+    private ChangePanel win;
     
-    public MartIn(MainFrame win) {
+    public MartIn(ChangePanel win) {
         setLayout(null);
         this.win = win;
         
@@ -25,13 +25,13 @@ public class MartIn extends JPanel{
 		
 		add(label);
         
-        JButton btn = new JButton("ë²„íŠ¼");
+        JButton btn = new JButton("¹öÆ°");
         btn.setSize(70,20);
         btn.setLocation(10,10);
         add(btn);
         btn.addActionListener(new MyActionListener());
     }
-    class MyActionListener implements ActionListener {         // ï¿½ï¿½Æ° Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ 1ï¿½ï¿½ È£ï¿½ï¿½
+    class MyActionListener implements ActionListener {         // ¹öÆ° Å° ´­¸®¸é ÆÐ³Î 1¹ø È£Ãâ
         @Override
         public void actionPerformed(ActionEvent e) {
             win.change("maintown");
