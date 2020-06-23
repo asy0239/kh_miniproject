@@ -1,4 +1,4 @@
-package miniProjectGame.frameChange;
+package frameChange;
 
 import javax.swing.JFrame;
 
