@@ -11,12 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import miniProjectGame.frameChange.JPanel02.MyActionListener;
-
 public class MainTown extends JPanel{
-    private MainFrame win;
+    private ChangePanel win;
     
-    public MainTown(MainFrame win) {
+    public MainTown(ChangePanel win) {
         setLayout(null);
         this.win = win;
         
@@ -41,7 +39,7 @@ public class MainTown extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				win.change("panel01");
+				win.change("startpage");
 				
 			}
 		});

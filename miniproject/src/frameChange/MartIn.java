@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 import miniProjectGame.frameChange.MainTown.MyActionListener;
 
 public class MartIn extends JPanel{
-    private MainFrame win;
+    private ChangePanel win;
     
-    public MartIn(MainFrame win) {
+    public MartIn(ChangePanel win) {
         setLayout(null);
         this.win = win;
         

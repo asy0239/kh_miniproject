@@ -8,12 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class JPanel01 extends JPanel{
+public class StartPage extends JPanel{
 	   
     private JButton jButton1; private JButton jButton2;
-    private MainFrame win;
+    private ChangePanel win;
     
-    public JPanel01(MainFrame win){
+    public StartPage(ChangePanel win){
         this.win = win;
         setLayout(null);
         
@@ -27,11 +27,11 @@ public class JPanel01 extends JPanel{
         jButton2.setLocation(150, 10);
         add(jButton2);
         
-        jButton1.addActionListener(/*new MyActionListener()*/new ActionListener() {
+        jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				win.change("panel02");
+				win.change("newuser");
 				
 			}
 		});
@@ -45,12 +45,6 @@ public class JPanel01 extends JPanel{
 			}
 		});
     }
-//    class MyActionListener implements ActionListener {    // 버튼 키 눌리면 패널 2번 호출
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            win.change("panel02");
-//        }
-//     }
 	
 }
 

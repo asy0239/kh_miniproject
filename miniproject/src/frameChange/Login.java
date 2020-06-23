@@ -9,15 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import miniProjectGame.frameChange.JPanel02.MyActionListener;
-
 public class Login extends JPanel{
 	
 	 private JTextField textField;
 	    private JPasswordField passwordField;
-	    private MainFrame win;
+	    private ChangePanel win;
 	    
-	    public Login(MainFrame win) {
+	    public Login(ChangePanel win) {
 	        setLayout(null);
 	        this.win = win;
 	        JLabel lblLbl = new JLabel("¾ÆÀÌµð:");

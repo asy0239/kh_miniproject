@@ -9,13 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class JPanel02 extends JPanel{
+public class NewUser extends JPanel{
 
     private JTextField textField;
     private JPasswordField passwordField;
-    private MainFrame win;
+    private ChangePanel win;
     
-    public JPanel02(MainFrame win) {
+    public NewUser(ChangePanel win) {
         setLayout(null);
         this.win = win;
         JLabel lblLbl = new JLabel("아이디:");
@@ -44,7 +44,7 @@ public class JPanel02 extends JPanel{
     class MyActionListener implements ActionListener {         // 버튼 키 눌리면 패널 1번 호출
         @Override
         public void actionPerformed(ActionEvent e) {
-            win.change("panel01");
+            win.change("startpage");
         }
     }
 	

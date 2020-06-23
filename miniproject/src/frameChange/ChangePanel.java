@@ -1,49 +1,53 @@
 package miniProjectGame.frameChange;
 
-public class ChangePanel{
+import javax.swing.JFrame;
+
+public class ChangePanel extends JFrame{
 	
-	public JPanel01 jpanel01;
-	public JPanel02 jpanel02;
+	public StartPage startpage;
+	public NewUser newuser;
 	public Login login;
 	public MainTown maintown;
 	public MartIn martin;
+	public ChangePanel mf;
 	
-/*	public void change(MainFrame mf, String panelName) {
+	public void change(String panelName) {
 		
-		if(panelName.equals("panel01")) {
-			mf.getContentPane().removeAll();
-			mf.getContentPane().add(jpanel01);
-			mf.revalidate();
-			mf.repaint();
+		if(panelName.equals("startpage")) {
+			getContentPane().removeAll();
+			getContentPane().add(startpage);
+			revalidate();
+			repaint();
 		}
-		if(panelName.equals("panel02")) {
-			mf.getContentPane().removeAll();
-			mf.getContentPane().add(jpanel02);
-			mf.revalidate();
-			mf.repaint();
+		
+		if(panelName.equals("newuser")) {
+			getContentPane().removeAll();
+			getContentPane().add(newuser);
+			revalidate();
+			repaint();
 		}
 		
 		if(panelName.equals("login")) {
-			mf.getContentPane().removeAll();
-			mf.getContentPane().add(login);
-			mf.revalidate();
-			mf.repaint();
+			getContentPane().removeAll();
+			getContentPane().add(login);
+			revalidate();
+			repaint();
 		}
 		
 		if(panelName.equals("maintown")) {
-			mf.getContentPane().removeAll();
-			mf.getContentPane().add(maintown);
-			mf.revalidate();
-			mf.repaint();
+			getContentPane().removeAll();
+			getContentPane().add(maintown);
+			revalidate();
+			repaint();
 		}
 		
 		if(panelName.equals("martin")) {
-			mf.getContentPane().removeAll();
-			mf.getContentPane().add(martin);
-			mf.revalidate();
-			mf.repaint();
+			getContentPane().removeAll();
+			getContentPane().add(martin);
+			revalidate();
+			repaint();
 		}
 		
-	}*/
+	}
 	
 }
