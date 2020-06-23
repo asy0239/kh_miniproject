@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import miniProjectGame.frameChange.MainTown.MyActionListener;
+import frameChange.MainTown.MyActionListener;
 
 public class MartIn extends JPanel{
     private ChangePanel win;
