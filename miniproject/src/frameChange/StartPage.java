@@ -1,4 +1,4 @@
-package frameChange;
+package miniProjectGame.frameChange;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,30 +8,30 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class JPanel01 extends JPanel{
+public class StartPage extends JPanel{
 	   
     private JButton jButton1; private JButton jButton2;
-    private MainFrame win;
+    private ChangePanel win;
     
-    public JPanel01(MainFrame win){
+    public StartPage(ChangePanel win){
         this.win = win;
         setLayout(null);
         
-        jButton1 = new JButton("ë¡œê·¸ì¸");
+        jButton1 = new JButton("È¸¿ø°¡ÀÔ");
         jButton1.setSize(120,20);        
         jButton1.setLocation(10, 10);
         add(jButton1);
         
-        jButton2 = new JButton("íšŒì›ê°€ì…");
+        jButton2 = new JButton("·Î±×ÀÎ");
         jButton2.setSize(120,20);
         jButton2.setLocation(150, 10);
         add(jButton2);
         
-        jButton1.addActionListener(/*new MyActionListener()*/new ActionListener() {
+        jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				win.change("panel02");
+				win.change("newuser");
 				
 			}
 		});
@@ -45,12 +45,6 @@ public class JPanel01 extends JPanel{
 			}
 		});
     }
-//    class MyActionListener implements ActionListener {    // ï¿½ï¿½Æ° Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ğ³ï¿½ 2ï¿½ï¿½ È£ï¿½ï¿½
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            win.change("panel02");
-//        }
-//     }
 	
 }
 

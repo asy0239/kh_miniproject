@@ -1,4 +1,4 @@
-package frameChange;
+package miniProjectGame.frameChange;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,16 +9,16 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class JPanel02 extends JPanel{
+public class NewUser extends JPanel{
 
     private JTextField textField;
     private JPasswordField passwordField;
-    private MainFrame win;
+    private ChangePanel win;
     
-    public JPanel02(MainFrame win) {
+    public NewUser(ChangePanel win) {
         setLayout(null);
         this.win = win;
-        JLabel lblLbl = new JLabel("ì•„ì´ë”” :");
+        JLabel lblLbl = new JLabel("¾ÆÀÌµğ:");
         lblLbl.setBounds(31, 40, 67, 15);
         add(lblLbl);
         
@@ -27,7 +27,7 @@ public class JPanel02 extends JPanel{
         add(textField);
         textField.setColumns(10);
         
-        JLabel lblLbl_1 = new JLabel("ë¹„ë°€ë²ˆí˜¸:");
+        JLabel lblLbl_1 = new JLabel("¾ÏÈ£:");
         lblLbl_1.setBounds(31, 84, 67, 15);
         add(lblLbl_1);
         
@@ -35,16 +35,16 @@ public class JPanel02 extends JPanel{
         passwordField.setBounds(123, 84, 116, 21);
         add(passwordField);
         
-        JButton btn = new JButton("ë¡œê·¸ì¸");
+        JButton btn = new JButton("¹öÆ°");
         btn.setSize(70,20);
         btn.setLocation(10,10);
         add(btn);
         btn.addActionListener(new MyActionListener());
     }
-    class MyActionListener implements ActionListener {         // ï¿½ï¿½Æ° Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ğ³ï¿½ 1ï¿½ï¿½ È£ï¿½ï¿½
+    class MyActionListener implements ActionListener {         // ¹öÆ° Å° ´­¸®¸é ÆĞ³Î 1¹ø È£Ãâ
         @Override
         public void actionPerformed(ActionEvent e) {
-            win.change("panel01");
+            win.change("startpage");
         }
     }
 	
