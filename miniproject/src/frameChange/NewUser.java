@@ -1,4 +1,4 @@
-package miniProjectGame.frameChange;
+package frameChange;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
