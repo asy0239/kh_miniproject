@@ -10,7 +10,7 @@ public class ChangePanel extends JFrame{
 	public MainTown maintown;
 	public MartIn martin;
 	public ChangePanel mf;
-	
+	//
 	public void change(String panelName) {
 		
 		if(panelName.equals("startpage")) {
