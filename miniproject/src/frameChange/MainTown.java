@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 
 public class MainTown extends JPanel{
     private ChangePanel win;
-    
     public MainTown(ChangePanel win) {
         setLayout(null);
         this.win = win;
@@ -36,7 +35,8 @@ public class MainTown extends JPanel{
         btn.setLocation(100, 10);
         add(btn2);
         btn2.addActionListener(new ActionListener() {
-			
+		
+        
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				win.change("startpage");
@@ -44,7 +44,9 @@ public class MainTown extends JPanel{
 			}
 		});
         
+        
     }
+    
     class MyActionListener implements ActionListener {         // 버튼 키 눌리면 패널 1번 호출
         @Override
         public void actionPerformed(ActionEvent e) {

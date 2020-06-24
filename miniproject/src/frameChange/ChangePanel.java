@@ -10,6 +10,9 @@ public class ChangePanel extends JFrame{
 	public MainTown maintown;
 	public MartIn martin;
 	public ChangePanel mf;
+	public PlayerMain playerMain;
+	public PlayerGame playerGame;
+	public PlayerMart playerMart;
 	
 	public void change(String panelName) {
 		
@@ -44,6 +47,24 @@ public class ChangePanel extends JFrame{
 		if(panelName.equals("martin")) {
 			getContentPane().removeAll();
 			getContentPane().add(martin);
+			revalidate();
+			repaint();
+		}
+		if(panelName.equals("playerMain")) {
+			getContentPane().removeAll();
+			getContentPane().add(playerMain);
+			revalidate();
+			repaint();
+		}
+		if(panelName.equals("playerMart")) {
+			getContentPane().removeAll();
+			getContentPane().add(playerMart);
+			revalidate();
+			repaint();
+		}
+		if(panelName.equals("playerGame")) {
+			getContentPane().removeAll();
+			getContentPane().add(playerGame);
 			revalidate();
 			repaint();
 		}
