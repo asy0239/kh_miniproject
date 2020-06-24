@@ -18,16 +18,17 @@ public class Login extends JPanel{
 	    public Login(ChangePanel win) {
 	        setLayout(null);
 	        this.win = win;
-	        JLabel lblLbl = new JLabel("¾ÆÀÌµğ:");
+	        JLabel lblLbl = new JLabel("ì•„ì´ë””:");
 	        lblLbl.setBounds(31, 40, 67, 15);
 	        add(lblLbl);
+	        
 	        
 	        textField = new JTextField();
 	        textField.setBounds(123, 40, 116, 21);
 	        add(textField);
 	        textField.setColumns(10);
 	        
-	        JLabel lblLbl_1 = new JLabel("¾ÏÈ£:");
+	        JLabel lblLbl_1 = new JLabel("ì•”í˜¸:");
 	        lblLbl_1.setBounds(31, 84, 67, 15);
 	        add(lblLbl_1);
 	        
@@ -35,16 +36,16 @@ public class Login extends JPanel{
 	        passwordField.setBounds(123, 84, 116, 21);
 	        add(passwordField);
 	        
-	        JButton btn = new JButton("¹öÆ°");
+	        JButton btn = new JButton("ë²„íŠ¼");
 	        btn.setSize(70,20);
 	        btn.setLocation(10,10);
 	        add(btn);
 	        btn.addActionListener(new MyActionListener());
 	    }
-	    class MyActionListener implements ActionListener {         // ¹öÆ° Å° ´­¸®¸é ÆĞ³Î 1¹ø È£Ãâ
+	    class MyActionListener implements ActionListener {         // ë²„íŠ¼ í‚¤ ëˆŒë¦¬ë©´ íŒ¨ë„ 1ë²ˆ í˜¸ì¶œ
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
-	            win.change("maintown");
+	            win.change("playerMain");
 	        }
 	    }
 	

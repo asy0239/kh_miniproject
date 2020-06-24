@@ -13,7 +13,9 @@ public class Start {
 		mf.login = new Login(mf);
 		mf.maintown = new MainTown(mf);
 		mf.martin = new MartIn(mf);
-		
+		mf.playerMain = new PlayerMain(mf);
+//		mf.playerMart = new PlayerMain(mf);
+//		mf.playerGame = new PlayerMain(mf);
 		mf.add(mf.startpage);
 		
 		mf.setVisible(true);
