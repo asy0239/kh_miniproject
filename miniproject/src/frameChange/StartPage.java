@@ -17,12 +17,12 @@ public class StartPage extends JPanel{
         this.win = win;
         setLayout(null);
         
-        jButton1 = new JButton("È¸¿ø°¡ÀÔ");
+        jButton1 = new JButton("íšŒì›ê°€ì…");
         jButton1.setSize(120,20);        
         jButton1.setLocation(10, 10);
         add(jButton1);
         
-        jButton2 = new JButton("·Î±×ÀÎ");
+        jButton2 = new JButton("ë¡œê·¸ì¸");
         jButton2.setSize(120,20);
         jButton2.setLocation(150, 10);
         add(jButton2);
