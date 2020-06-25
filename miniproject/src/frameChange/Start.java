@@ -14,7 +14,7 @@ public class Start {
 		mf.martin = new MartIn(mf);
 		mf.playerMain = new PlayerMain(mf);
 		mf.playerMart = new PlayerMart(mf);
-//		mf.playerGame = new PlayerGame(mf);
+		mf.playerGame = new PlayerGame(mf);
 		mf.add(mf.startpage);
 		
 		mf.setVisible(true);
