@@ -105,7 +105,7 @@ public class Login extends JPanel{
 
 					if(id.equals(txtID.getText()) && pwd.equals(txtPwd.getText() )) {
 						JOptionPane.showMessageDialog(null, "로그인 성공");
-							//win.change("maintown");
+							win.change("playerMain");
 
 					} else {
 						JOptionPane.showMessageDialog(null, "로그인 실패");
@@ -125,7 +125,7 @@ public class Login extends JPanel{
 
 				if(id.equals(txtID.getText()) && pwd.equals(txtPwd.getText() )) {
 					JOptionPane.showMessageDialog(null, "로그인 성공");
-						//win.change("maintown");
+						win.change("playerMain");
 
 				} else {
 					JOptionPane.showMessageDialog(null, "로그인 실패");
