@@ -10,6 +10,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import frameChange.cardGame.view.MiniPoker;
+
 public class PlayerGame extends JPanel implements KeyListener, Runnable{
 	   private Image screenImage;
 	   private ChangePanel win;
@@ -17,7 +19,6 @@ public class PlayerGame extends JPanel implements KeyListener, Runnable{
 	   private boolean playMove;
 	   final int perMove = 20;
 	   Thread th;
-	
 	   
 	   // 아래와 같이 변수명 변경하였으니 확인 요망
 
@@ -313,7 +314,8 @@ public class PlayerGame extends JPanel implements KeyListener, Runnable{
 		   win.change("numbergame");
 	   }
 	   if((x >= 560 && x <= 700) && (y == 260)) {
-		   win.change("startpage");
+		   win.change("miniPoker");
+		   
 	   }
    }
   

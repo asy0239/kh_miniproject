@@ -2,6 +2,8 @@ package frameChange;
 
 import javax.swing.JFrame;
 
+import frameChange.cardGame.view.MiniPoker;
+
 public class Start {
 
 	public Start() {
@@ -15,6 +17,7 @@ public class Start {
 		mf.playerMain = new PlayerMain(mf);
 		mf.playerMart = new PlayerMart(mf);
 		mf.playerGame = new PlayerGame(mf);
+		mf.miniPoker = new MiniPoker(mf);
 		mf.add(mf.startpage);
 		
 		mf.setVisible(true);
