@@ -2,6 +2,8 @@ package frameChange;
 
 import javax.swing.JFrame;
 
+import frameChange.cardGame.view.MiniPoker;
+
 public class ChangePanel extends JFrame{
 	
 	public StartPage startpage;
@@ -13,6 +15,7 @@ public class ChangePanel extends JFrame{
 	public PlayerMain playerMain;
 	public PlayerGame playerGame;
 	public PlayerMart playerMart;
+	public MiniPoker miniPoker;
 	
 	public void change(String panelName) {
 		
@@ -68,7 +71,12 @@ public class ChangePanel extends JFrame{
 			revalidate();
 			repaint();
 		}
-		
+		if(panelName.equals("miniPoker")) {
+			getContentPane().removeAll();
+			getContentPane().add(miniPoker);
+			revalidate();
+			repaint();
+		}
 	}
 	
 }
