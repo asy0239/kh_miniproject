@@ -18,7 +18,7 @@ public class NewUser extends JPanel{
     public NewUser(ChangePanel win) {
         setLayout(null);
         this.win = win;
-        JLabel lblLbl = new JLabel("¾ÆÀÌµğ:");
+        JLabel lblLbl = new JLabel("ì´ë¦„:");
         lblLbl.setBounds(31, 40, 67, 15);
         add(lblLbl);
         
@@ -27,7 +27,7 @@ public class NewUser extends JPanel{
         add(textField);
         textField.setColumns(10);
         
-        JLabel lblLbl_1 = new JLabel("¾ÏÈ£:");
+        JLabel lblLbl_1 = new JLabel("ì•„ì´ë””:");
         lblLbl_1.setBounds(31, 84, 67, 15);
         add(lblLbl_1);
         
@@ -35,13 +35,13 @@ public class NewUser extends JPanel{
         passwordField.setBounds(123, 84, 116, 21);
         add(passwordField);
         
-        JButton btn = new JButton("¹öÆ°");
+        JButton btn = new JButton("í™•ì¸");
         btn.setSize(70,20);
         btn.setLocation(10,10);
         add(btn);
         btn.addActionListener(new MyActionListener());
     }
-    class MyActionListener implements ActionListener {         // ¹öÆ° Å° ´­¸®¸é ÆĞ³Î 1¹ø È£Ãâ
+    class MyActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             win.change("startpage");

@@ -13,17 +13,27 @@ import javax.swing.JPanel;
 public class PlayerMain extends JPanel implements KeyListener, Runnable{
 	private Image screenImage;
 	private ChangePanel win;
-	private Graphics screenGraphics; // ¾î¶² ÄÄÆ÷³ÍÆ®¿¡ ±×¸®±âÀ§ÇÑ Á¤º¸¸¦ ´ã°í ÀÖ´Â Ãß»ó Å¬·¡½º
+	private Graphics screenGraphics; 
 	private boolean playMove;
 	final int perMove = 10;
 	Thread th;
+	
+	// ì•„ë˜ì™€ ê°™ì´ ë³€ìˆ˜ëª… ë³€ê²½í•˜ì˜€ìœ¼ë‹ˆ í™•ì¸ ìš”ë§
 	private Image imgMainTown, imgPlayerUp, imgPlayerDown,imgPlayerStop,
 	imgPlayerLeft,imgPlayerRight , imgNPC, imgPlayerUping, imgPlayerDowning,
 	imgPlayerLefting, imgPlayerRighting;
+	
+	/*
+	
+	private Image mainMartBackGround, player, imgNPC, imgPlayerUp, imgPlayerUp1, imgPlayerUp2, imgPlayerDown,
+			imgPlayerDown1, imgPlayerDown2, imgPlayerLeft, imgPlayerLeft1, imgPlayerLeft2, imgPlayerRight,
+			imgPlayerRight1, imgPlayerRight2, imgTrash;
+	
+	*/
 
-	private int npcX, x;  // x ,y ÁÂÇ¥°ª
-	private int npcY, y;
-	private int status; // ¹æÇâÅ°ÀÇ »óÅÂ¸¦ Ã¼Å©
+	private int x, y;
+	private int npcX, npcY;
+	private int status;
 	Random ran;
 	
 	private Image mainTownBackGround, player;
@@ -34,36 +44,65 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
 		win.setTitle("player");
 		
 		win.setSize(1024, 768);
-		win.setResizable(false); // Ã¢ Å©±â º¯°æ °¡´É ¿©ºÎ
+		win.setResizable(false);
 		win.setVisible(true);
-		win.setLocationRelativeTo(null); // Ã¢À» »ó´ëÀûÀÎ À§Ä¡¿¡ ÁöÁ¤ ÇÒ ¼ö ÀÖ´Ù. null Àº À©µµ¿ì Ã¢ÀÇ °¡¿îµ¥¸¦ ÀÇ¹ÌÇÑ´Ù.
+		win.setLocationRelativeTo(null);
 		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+//	ì•„ë˜ì™€ ê°™ì´ ì´ë¯¸ì§€ ë¶ˆëŸ¬ì˜¤ëŠ” ë°©ì‹ ì¡°ì • ìš”ë§
 		
-		String path = "./images/";
+		/*		
+		String path = System.getProperty("user.dir") + "\\miniproject\\images\\";
+
+		mainMartBackGround = new ImageIcon(path + "bg\\maintown.png").getImage();
+		player = new ImageIcon(path + "character\\downStand.png").getImage().getScaledInstance(100, 100, 0);
+
+		imgPlayerUp = new ImageIcon(path + "character\\upStand.png").getImage().getScaledInstance(100, 100, 0);
+		imgPlayerUp1 = new ImageIcon(path + "character\\upLeft.png").getImage().getScaledInstance(100, 100, 0);
+		imgPlayerUp2 = new ImageIcon(path + "character\\upRight.png").getImage().getScaledInstance(100, 100, 0);
+
+		imgPlayerDown = new ImageIcon(path + "character\\downStand.png").getImage().getScaledInstance(100, 100, 0);
+		imgPlayerDown1 = new ImageIcon(path + "character\\downLeft.png").getImage().getScaledInstance(100, 100, 0);
+		imgPlayerDown2 = new ImageIcon(path + "character\\downRight.png").getImage().getScaledInstance(100, 100, 0);
+
+		imgPlayerLeft = new ImageIcon(path + "character\\leftStand.png").getImage().getScaledInstance(100, 100, 0);
+		imgPlayerLeft1 = new ImageIcon(path + "character\\leftLeft.png").getImage().getScaledInstance(100, 100, 0);
+		imgPlayerLeft2 = new ImageIcon(path + "character\\leftRight.png").getImage().getScaledInstance(100, 100, 0);
+
+		imgPlayerRight = new ImageIcon(path + "character\\rightStand.png").getImage().getScaledInstance(100, 100, 0);
+		imgPlayerRight1 = new ImageIcon(path + "character\\rightLeft.png").getImage().getScaledInstance(100, 100, 0);
+		imgPlayerRight2 = new ImageIcon(path + "character\\rightRight.png").getImage().getScaledInstance(100, 100, 0);
+
+		imgTrash = new ImageIcon(path + "shop\\icon_trash.png").getImage().getScaledInstance(50, 50, 0);
+			
+
+*/
+		String path = System.getProperty("user.dir") + "\\miniproject\\images\\";
+		
+		
 		mainTownBackGround = new ImageIcon(path + "maintown.png").getImage(); 
 		player = new ImageIcon(path + "downstop.png").getImage();
-		imgMainTown = new ImageIcon(path + "¿ÜºÎ¸¶À».png").getImage().getScaledInstance(50, 50, 0); // ¿ÜºÎ ¸¶À» ÀÌ¹ÌÁö
-		imgPlayerUp = new ImageIcon(path + "upstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
-		imgPlayerDown = new ImageIcon(path + "downstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
-		imgPlayerLeft = new ImageIcon(path + "leftstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
-		imgPlayerRight = new ImageIcon(path + "rightstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
-		imgPlayerUping = new ImageIcon(path + "upgo.png").getImage().getScaledInstance(50,50, 0); // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
-		imgPlayerRighting = new ImageIcon(path + "rightgo.png").getImage().getScaledInstance(50, 50, 0); // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
-		imgPlayerLefting = new ImageIcon(path + "leftgo.png").getImage().getScaledInstance(50, 50, 0); // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
-		imgPlayerDowning = new ImageIcon(path + "downgo.png").getImage().getScaledInstance(50, 50, 0); // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
-		imgPlayerStop = new ImageIcon(path + "downstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
+		imgMainTown = new ImageIcon(path + "maintown.png").getImage().getScaledInstance(50, 50, 0); // ï¿½Üºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+		imgPlayerUp = new ImageIcon(path + "upstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+		imgPlayerDown = new ImageIcon(path + "downstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+		imgPlayerLeft = new ImageIcon(path + "leftstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+		imgPlayerRight = new ImageIcon(path + "rightstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+		imgPlayerUping = new ImageIcon(path + "upgo.png").getImage().getScaledInstance(50,50, 0); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+		imgPlayerRighting = new ImageIcon(path + "rightgo.png").getImage().getScaledInstance(50, 50, 0); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+		imgPlayerLefting = new ImageIcon(path + "leftgo.png").getImage().getScaledInstance(50, 50, 0); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+		imgPlayerDowning = new ImageIcon(path + "downgo.png").getImage().getScaledInstance(50, 50, 0); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+		imgPlayerStop = new ImageIcon(path + "downstop.png").getImage().getScaledInstance(50, 50, 0); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
 		
-		imgNPC = new ImageIcon(path + "downstop.png").getImage().getScaledInstance(50, 50, 0); // npc ÀÌ¹ÌÁö
+		
+//		imgNPC = new ImageIcon(path + "downstop.png").getImage().getScaledInstance(50, 50, 0); // npc ï¿½Ì¹ï¿½ï¿½ï¿½
 
-		player = player.getScaledInstance(50, 50, 0);
 		
 		
 		
-		//Main.class.getResource(name) ÇÁ·ÎÁ§Æ® °æ·Î, ¸ŞÀÎ °æ·Î¸¦ ¾Ë·ÁÁÜ
+		//Main.class.getResource(name) 
 		
 		
-		// Ä³¸¯ÅÍ ÃÊ±â À§Ä¡
+		//
 		x = 10;
 		y = 10;
 
@@ -76,15 +115,15 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
 	
 	public void paint(Graphics g) {
 		screenImage = createImage(1024, 768);
-		screenGraphics = screenImage.getGraphics(); // graphics °´Ã¼·Î º¯È¯
+		screenGraphics = screenImage.getGraphics(); //  
 		doubleBuffered(screenGraphics);
 		g.drawImage(screenImage , 0, 0, null);
 		g.drawImage(player, x, y, null);
 		g.drawImage(imgNPC, npcX,npcY,null);
 	}
 	
-	public void doubleBuffered(Graphics g) {  // paint ¿Í doubleBuffered ¸¦ ÀÌ¿ëÇØ ±ôºı°Å¸²À» Á¦°ÅÇÒ ¼ö ÀÖ´Ù.
-		// ¹öÆÛ¿¡ ¹Ì¸® ¿Ã·Á³ö ²÷±è¾øÀÌ º¸¿©ÁØ´Ù.
+	public void doubleBuffered(Graphics g) {  //
+		// 
 		g.drawImage(MoveImage(),x,y,null);
 		g.drawImage(mainTownBackGround, 0, 0, null);
 //		g.drawImage(imgNPC, npcX,npcY, null);
@@ -238,7 +277,7 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
 	public boolean checkXY2(int x , int y) {
 	      boolean[][] maxXY = new boolean[1023][767];
 	      
-	      // ÃÊ±âÈ­
+	      // ï¿½Ê±ï¿½È­
 	      for(int i=0; i<maxXY.length; i++) {
 	         for(int j=0; j<maxXY[i].length; j++) {
 	            maxXY[i][j] = false;
@@ -268,20 +307,20 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
 	    	  }
 	      }
 	      
-	      // ¿À¸¥ÂÊ »ó´Ü - °Ç¹°(My)
+	      // 
 	      for(int i = 850; i < 900; i++) {
 	    	  for(int j = 270; j < 300; j++) {
 	    		  maxXY[i][j] = true;
 	    	  }
 	      }
-	      // ¿ŞÂÊ »ó´Ü - °Ç¹°(¹Ú¹°°ü)
+	      // 
 	      for(int i = 170; i < 230; i++) {
 	    	  for(int j = 260; j < 300; j++) {
 	    		  maxXY[i][j] = true;
 	    	  }
 	      }
 	      
-	      // °¡¿îµ¥ »ó´Ü - °Ç¹°()
+	      //
 	      for(int i = 350; i < 400; i++) {
 	    	  for(int j = 270; j < 300; j++) {
 	    		  maxXY[i][j] = true;

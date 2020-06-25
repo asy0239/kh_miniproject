@@ -7,7 +7,6 @@ public class ChangePanel extends JFrame{
 	public StartPage startpage;
 	public NewUser newuser;
 	public Login login;
-	public MainTown maintown;
 	public MartIn martin;
 	public ChangePanel mf;
 	public PlayerMain playerMain;
@@ -33,13 +32,6 @@ public class ChangePanel extends JFrame{
 		if(panelName.equals("login")) {
 			getContentPane().removeAll();
 			getContentPane().add(login);
-			revalidate();
-			repaint();
-		}
-		
-		if(panelName.equals("maintown")) {
-			getContentPane().removeAll();
-			getContentPane().add(maintown);
 			revalidate();
 			repaint();
 		}
