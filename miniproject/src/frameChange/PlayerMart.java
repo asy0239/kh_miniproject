@@ -22,7 +22,7 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 	Thread th;
 	private Image mainMartBackGround, player, imgNPC, imgPlayerUp, imgPlayerUp1, imgPlayerUp2, imgPlayerDown,
 			imgPlayerDown1, imgPlayerDown2, imgPlayerLeft, imgPlayerLeft1, imgPlayerLeft2, imgPlayerRight,
-			imgPlayerRight1, imgPlayerRight2, imgTrash;
+			imgPlayerRight1, imgPlayerRight2, imgTrash, imgBanana, imgBook, imgFish, imgGrape, imgNecklaces, imgShoes, imgWatermelon;
 
 	private int x, y; // 좌표
 	private int guestX, guestY;
@@ -42,7 +42,7 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 		win.setLocationRelativeTo(null);
 		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		String path = System.getProperty("user.dir") + "\\miniproject\\images\\";
+		String path = System.getProperty("user.dir") + "\\images\\";
 
 		mainMartBackGround = new ImageIcon(path + "bg\\mainmart.png").getImage();
 		player = new ImageIcon(path + "character\\downStand.png").getImage().getScaledInstance(100, 100, 0);
@@ -63,9 +63,20 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 		imgPlayerRight1 = new ImageIcon(path + "character\\rightLeft.png").getImage().getScaledInstance(100, 100, 0);
 		imgPlayerRight2 = new ImageIcon(path + "character\\rightRight.png").getImage().getScaledInstance(100, 100, 0);
 
-		imgTrash = new ImageIcon(path + "shop\\icon_trash.png").getImage().getScaledInstance(50, 50, 0);
+		imgTrash = new ImageIcon(path + "shop\\icon_trash.png").getImage().getScaledInstance(30, 30, 0);
 
-		x = 900;
+		imgBanana = new ImageIcon(path + "shop\\productBanana.png").getImage().getScaledInstance(30, 30, 0);
+		imgBook = new ImageIcon(path + "shop\\productBook.png").getImage().getScaledInstance(30, 30, 0);
+		imgFish = new ImageIcon(path + "shop\\productFish.png").getImage().getScaledInstance(30, 30, 0);
+		imgGrape = new ImageIcon(path + "shop\\productGrape.png").getImage().getScaledInstance(30, 30, 0);
+		imgNecklaces = new ImageIcon(path + "shop\\productNecklaces.png").getImage().getScaledInstance(30, 30, 0);
+		imgShoes = new ImageIcon(path + "shop\\productShoes.png").getImage().getScaledInstance(30, 30, 0);
+		imgWatermelon = new ImageIcon(path + "shop\\productWatermelon.png").getImage().getScaledInstance(30, 30, 0);
+		
+		
+		
+		
+		x = 890;
 		y = 120;
 
 		this.addKeyListener(this);
@@ -347,7 +358,7 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 
 		for (int i = 0; i < ctnTrash; i++) {
 			trashXY[i][0] = ((int) ((Math.random() * 1024)) / 10) * 10; // 1의 자리 버림
-			trashXY[i][1] = (int) (((Math.random() * 768)) / 10) * 10; // 1의 자리 버림
+			trashXY[i][1] = ((int) ((Math.random() * 768)) / 10) * 10; // 1의 자리 버림
 
 //			System.out.println("\t\t\t" + trashXY[i][0] + "\t" + trashXY[i][1]);
 
