@@ -28,13 +28,12 @@ public class Login extends JPanel{
 		
 		this.setBackground(Color.BLACK);
 		
-		
-		JLabel label = new JLabel(new ImageIcon(new ImageIcon("images/main/logo.png").getImage().getScaledInstance(600, 250, 0)));
+		JLabel label = new JLabel(new ImageIcon(new ImageIcon("images/main/logo.png").getImage().getScaledInstance(640, 230, 0)));
 		add(label).setBounds(105, 50, 800, 500);
 
 		//아이디
 		JLabel id = new JLabel("ID : ");
-		add(id).setBounds(290, 470, 100, 30);
+		add(id).setBounds(290, 472, 100, 30);
 
 		txtID = new JTextField();
 		add(txtID).setBounds(360, 470, 200, 40);
@@ -42,7 +41,7 @@ public class Login extends JPanel{
 
 		//비밀번호
 		JLabel pwd = new JLabel("PW : ");
-		add(pwd).setBounds(280, 530, 100, 30);
+		add(pwd).setBounds(280, 534, 100, 30);
 
 		txtPwd = new JPasswordField();
 		add(txtPwd).setBounds(360, 530, 200, 40);
@@ -59,18 +58,19 @@ public class Login extends JPanel{
 		
 		//아이디, 비밀번호 찾기
 		JButton findbtn = new JButton("ID/PW 찾기");
-		add(findbtn).setBounds(390, 660, 100, 30);
+		add(findbtn).setBounds(755, 660, 100, 30);
 		
 		//회원가입
 		JButton signupbtn = new JButton("회원가입");
-		add(signupbtn).setBounds(530, 660, 100, 30);
+		add(signupbtn).setBounds(875, 660, 100, 30);
 		signupbtn.addActionListener(new SignActionListener());
 		
-		//텍스트크기
+		//텍스트 크기
 		id.setFont(new Font("Tahoma", Font.BOLD, 25));
 		pwd.setFont(new Font("Tahoma", Font.BOLD, 25));
-		backbtn.setFont(new Font("Tahoma", Font.BOLD, 15));
-		loginbtn.setFont(new Font("Tahoma", Font.BOLD, 30));
+		loginbtn.setFont(new Font("Tahoma", Font.BOLD, 33));
+		txtID.setFont(new Font("Tahoma", Font.BOLD, 20));
+		txtPwd.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		//텍스트 색깔
 		id.setForeground(Color.WHITE);
