@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -16,20 +18,28 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 	private Graphics screenGraphics;
 	private boolean playMove;
 	final int perMove = 10;
-	private int ctnTrash = 5;
-	private int[][] trashXY = new int[5][2];
+	private int ctnProduct = 8;
+	private int[][] productXY = new int[ctnProduct][2];
 
+	
+	
 	Thread th;
 	private Image mainMartBackGround, player, imgNPC, imgPlayerUp, imgPlayerUp1, imgPlayerUp2, imgPlayerDown,
 			imgPlayerDown1, imgPlayerDown2, imgPlayerLeft, imgPlayerLeft1, imgPlayerLeft2, imgPlayerRight,
 			imgPlayerRight1, imgPlayerRight2, imgTrash, imgBanana, imgBook, imgFish, imgGrape, imgNecklaces, imgShoes, imgWatermelon;
 
+	private Image[] iArr = new Image[8];
+	private Image[] tempIarr = iArr;
+	
 	private int x, y; // 좌표
 	private int guestX, guestY;
 	private int status; //
 	Random ran;
 	int changeImg = 1;
 
+	ArrayList alist = new ArrayList();
+
+	
 	public PlayerMart(ChangePanel win) {
 		this.win = win;
 
@@ -63,16 +73,17 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 		imgPlayerRight1 = new ImageIcon(path + "character\\rightLeft.png").getImage().getScaledInstance(100, 100, 0);
 		imgPlayerRight2 = new ImageIcon(path + "character\\rightRight.png").getImage().getScaledInstance(100, 100, 0);
 
-		imgTrash = new ImageIcon(path + "shop\\icon_trash.png").getImage().getScaledInstance(30, 30, 0);
+		iArr[0] = imgTrash = new ImageIcon(path + "shop\\icon_trash.png").getImage().getScaledInstance(30, 30, 0);
 
-		imgBanana = new ImageIcon(path + "shop\\productBanana.png").getImage().getScaledInstance(30, 30, 0);
-		imgBook = new ImageIcon(path + "shop\\productBook.png").getImage().getScaledInstance(30, 30, 0);
-		imgFish = new ImageIcon(path + "shop\\productFish.png").getImage().getScaledInstance(30, 30, 0);
-		imgGrape = new ImageIcon(path + "shop\\productGrape.png").getImage().getScaledInstance(30, 30, 0);
-		imgNecklaces = new ImageIcon(path + "shop\\productNecklaces.png").getImage().getScaledInstance(30, 30, 0);
-		imgShoes = new ImageIcon(path + "shop\\productShoes.png").getImage().getScaledInstance(30, 30, 0);
-		imgWatermelon = new ImageIcon(path + "shop\\productWatermelon.png").getImage().getScaledInstance(30, 30, 0);
-		
+		iArr[1] = imgBanana = new ImageIcon(path + "shop\\productBanana.png").getImage().getScaledInstance(30, 30, 0);
+		iArr[2] = imgBook = new ImageIcon(path + "shop\\productBook.png").getImage().getScaledInstance(30, 30, 0);
+		iArr[3] = imgFish = new ImageIcon(path + "shop\\productFish.png").getImage().getScaledInstance(30, 30, 0);
+		iArr[4] = imgGrape = new ImageIcon(path + "shop\\productGrape.png").getImage().getScaledInstance(30, 30, 0);
+		iArr[5] = imgNecklaces = new ImageIcon(path + "shop\\productNecklaces.png").getImage().getScaledInstance(30, 30,
+				0);
+		iArr[6] = imgShoes = new ImageIcon(path + "shop\\productShoes.png").getImage().getScaledInstance(30, 30, 0);
+		iArr[7] = imgWatermelon = new ImageIcon(path + "shop\\productWatermelon.png").getImage().getScaledInstance(30,
+				30, 0);
 		
 		
 		
@@ -81,7 +92,15 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 
 		this.addKeyListener(this);
 		th = new Thread(this);
-		makeTrash();
+		
+		makeProduct();
+		for (int i = 0; i < 8; i++) {
+			alist.add(i);
+		}
+		Collections.shuffle(alist);
+
+		
+		
 		th.start();
 	}
 
@@ -90,9 +109,10 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 		screenGraphics = screenImage.getGraphics();
 		doubleBuffered(screenGraphics);
 		g.drawImage(screenImage, 0, 0, null);
-		for (int i = 0; i < 5; i++) {
-			if (trashXY[i][0] != -1 && trashXY[i][1] != -1)
-				g.drawImage(imgTrash, trashXY[i][0], trashXY[i][1], null);
+		for (int i = 0; i < 8; i++) {
+			if (productXY[i][0] != -1 && productXY[i][1] != -1) {
+				g.drawImage(iArr[(int) alist.get(i)], productXY[i][0], productXY[i][1], null);
+			}
 		}
 		g.drawImage(player, x, y, null);
 	}
@@ -244,13 +264,12 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 			}
 		case KeyEvent.VK_SPACE:
 
-			for (int i = 0; i < trashXY.length; i++) {
-
+			for (int i = 0; i < productXY.length; i++) {
 				// 캐릭터 좌표에 +- 50위 단위 내에서 선택 시
-				if ((trashXY[i][0] >= x && trashXY[i][0] <= x + 50)
-						&& (trashXY[i][1] >= y && trashXY[i][1] <= y+100)) {
-					trashXY[i][0] = -1;
-					trashXY[i][1] = -1;
+				if ((productXY[i][0] >= x && productXY[i][0] <= x + 50)
+						&& (productXY[i][1] >= y && productXY[i][1] <= y + 100)) {
+					productXY[i][0] = -1;
+					productXY[i][1] = -1;
 				}
 			}
 			break;
@@ -344,25 +363,25 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 
 	public void inMart(int x, int y) {
 		if (x >= 900 && (y >= 120 && y <= 200)) {
+			makeProduct();
 			win.change("playerMain");
 		}
 	}
 
-	public void makeTrash() {
+	public void makeProduct() {
 
-		for (int i = 0; i < ctnTrash; i++) {
-			for (int j = 0; j < 2; j++) {
-				trashXY[i][j] = 0;
-			}
+		for (int i = 0; i < ctnProduct; i++) {
+			productXY[i][0] = 0;
+			productXY[i][1] = 0;
 		}
 
-		for (int i = 0; i < ctnTrash; i++) {
-			trashXY[i][0] = ((int) ((Math.random() * 1024)) / 10) * 10; // 1의 자리 버림
-			trashXY[i][1] = ((int) ((Math.random() * 768)) / 10) * 10; // 1의 자리 버림
+		for (int i = 0; i < ctnProduct; i++) {
+			productXY[i][0] = ((int) ((Math.random() * 1024)) / 10) * 10; // 1의 자리 버림
+			productXY[i][1] = ((int) ((Math.random() * 768)) / 10) * 10; // 1의 자리 버림
 
-//			System.out.println("\t\t\t" + trashXY[i][0] + "\t" + trashXY[i][1]);
+			// System.out.println("\t\t\t" + trashXY[i][0] + "\t" + trashXY[i][1]);
 
-			if (!checkXY2(trashXY[i][0], trashXY[i][1])) {
+			if (!checkXY2(productXY[i][0], productXY[i][1])) {
 				i--;
 			}
 		}
