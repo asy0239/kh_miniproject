@@ -114,6 +114,7 @@ public class MiniPoker extends JPanel{
 		dlog.setLocation(400, 400);
 		dlog.setLayout(null);
 //		dlog.setUndecorated(true);
+		dlog.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
 		dlog.add(gameSty);
 		dlog.setVisible(false);
 		
