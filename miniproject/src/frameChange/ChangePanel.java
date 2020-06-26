@@ -16,6 +16,7 @@ public class ChangePanel extends JFrame{
 	public PlayerGame playerGame;
 	public PlayerMart playerMart;
 	public MiniPoker miniPoker;
+	public oneTo50 oneTo50;
 	
 	public void change(String panelName) {
 		
@@ -74,6 +75,12 @@ public class ChangePanel extends JFrame{
 		if(panelName.equals("miniPoker")) {
 			getContentPane().removeAll();
 			getContentPane().add(miniPoker);
+			revalidate();
+			repaint();
+		}
+		if(panelName.equals("oneTo50")) {
+			getContentPane().removeAll();
+			getContentPane().add(oneTo50);
 			revalidate();
 			repaint();
 		}

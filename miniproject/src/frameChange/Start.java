@@ -18,6 +18,7 @@ public class Start {
 		mf.playerMart = new PlayerMart(mf);
 		mf.playerGame = new PlayerGame(mf);
 		mf.miniPoker = new MiniPoker(mf);
+		mf.oneTo50 = new oneTo50(mf);
 		mf.add(mf.startpage);
 		
 		mf.setVisible(true);
