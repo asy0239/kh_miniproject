@@ -70,7 +70,7 @@ public class MiniPoker extends JPanel{
 	private boolean game = true;
 	private boolean isWin = false;
 	private boolean btnEn = false;
-	private boolean stop = false;
+	private boolean stop = true;
 	
 	public static boolean myTurn = false;
 	public static boolean comTurn = false;
@@ -108,6 +108,25 @@ public class MiniPoker extends JPanel{
 		}*/
 		
 		play();
+		JButton gameSty = new JButton("나가기");
+		dlog = new JDialog(mf, "게임설명", true);
+		dlog.setSize(300, 300);
+		dlog.setLocation(400, 400);
+		dlog.setLayout(null);
+//		dlog.setUndecorated(true);
+		dlog.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
+		dlog.add(gameSty);
+		dlog.setVisible(false);
+		
+		gameSty.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dlog.setVisible(false);
+				dlog.dispose();
+				
+			}
+		});
 		
 		this.setLayout(null);
 		
@@ -156,6 +175,7 @@ public class MiniPoker extends JPanel{
 				isDie = true;
 				myTurn = true;
 				comTurn = false;
+				stop = false;
 				die.setEnabled(false);
 				call.setEnabled(false);
 				ddable.setEnabled(false);
@@ -182,7 +202,7 @@ public class MiniPoker extends JPanel{
 				panDon2 += panDon2;
 				myTurn = true;
 				comTurn = false;
-
+				stop = false;
 				
 				if(myMoney1 < 0) {
 					call.setEnabled(false);
@@ -212,7 +232,7 @@ public class MiniPoker extends JPanel{
 				panDon2 += panDon2 * 2;
 				myTurn = true;
 				comTurn = false;
-
+				stop = false;
 				
 				if(myMoney1 < 0) {
 					call.setEnabled(false);
@@ -242,7 +262,8 @@ public class MiniPoker extends JPanel{
 				panDon2 += panDon2 / 2;
 				myTurn = true;
 				comTurn = false;
-
+				stop = false;
+				
 				if(myMoney1 < 0) {
 					call.setEnabled(false);
 					ddable.setEnabled(false);
@@ -254,9 +275,8 @@ public class MiniPoker extends JPanel{
         
         this.setSize(1024, 768);
         mf.add(this);
-        this.requestFocus();
-        this.setFocusable(true);
-        half.addKeyListener(new KeyAdapter() {
+        
+        this.addKeyListener(new KeyAdapter() {
         	
         	@Override
         	public void keyPressed(KeyEvent e) {
@@ -264,16 +284,14 @@ public class MiniPoker extends JPanel{
         		switch(e.getKeyCode()) {
         		
         		case KeyEvent.VK_F1 :
-        			dlog = new JDialog(mf, "게임설명", true);
-        			dlog.setSize(200, 200);
-        			dlog.setLocation(300, 0);
-        			dlog.setLayout(null);
+
         			dlog.setVisible(true);
         			
         		case KeyEvent.VK_ESCAPE :
         			mf.change("playerGame");
         			
         		case KeyEvent.VK_SPACE :
+        			
         			t1.start(); t2.start();
         			
         		}
@@ -284,6 +302,8 @@ public class MiniPoker extends JPanel{
 	}
 	
 	public void paintComponent(Graphics g) {
+        MiniPoker.this.requestFocus();
+        MiniPoker.this.setFocusable(true);
 		g.drawImage(back.getImage(), 0, 0, null);
 		setOpaque(false);
 		super.paintComponent(g);
@@ -638,75 +658,6 @@ public class MiniPoker extends JPanel{
 				
 			}
 			
-/*			for(int z = 0; z < 2; z++) {
-				
-				for(int pp = 0; pp < 1; pp++) {
-					
-					////////////////////////////////////////////////��ǻ��
-					switch(players[1].cards2[z]) {
-					case 0 : System.out.println("a_Joker");
-					jocbo2[0][0]++;
-					break;
-					case 1 : System.err.println("b_Joker");
-					jocbo2[0][0]++;
-					break;
-					case 2 : System.out.println("J_1");
-					jocbo2[1][0]++;
-					break;
-					case 3 : System.out.println("J_2");
-					jocbo2[1][0]++;
-					break;
-					case 4 : System.out.println("J_3");
-					jocbo2[1][0]++;
-					break;
-					case 5 : System.out.println("J_4");
-					jocbo2[1][0]++;
-					break;
-					case 6 : System.out.println("Q_1");
-					jocbo2[2][0]++;
-					break;
-					case 7 : System.out.println("Q_2");
-					jocbo2[2][0]++;
-					break;
-					case 8 : System.out.println("Q_3");
-					jocbo2[2][0]++;
-					break;
-					case 9 : System.out.println("Q_4");
-					jocbo2[2][0]++;
-					break;
-					case 10 : System.out.println("K_1");
-					jocbo2[3][0]++;
-					break;
-					case 11 : System.out.println("K_2");
-					jocbo2[3][0]++;
-					break;
-					case 12 : System.out.println("K_3");
-					jocbo2[3][0]++;
-					break;
-					case 13 : System.out.println("K_4");
-					jocbo2[3][0]++;
-					break;
-					case 14 : System.out.println("r_Joker");
-					jocbo2[0][0]++;
-					break;
-					case 15 : System.out.println("A_1");
-					jocbo2[4][0]++;
-					break;
-					case 16 : System.out.println("A_2");
-					jocbo2[4][0]++;
-					break;
-					case 17 : System.out.println("A_3");
-					jocbo2[4][0]++;
-					break;
-					case 18 : System.out.println("A_4");
-					jocbo2[4][0]++;
-					break;
-					}
-				}
-
-				
-			}*/
-			
 		} else {
 			for(int z = turn; z < zz; z++) {
 				
@@ -795,75 +746,6 @@ public class MiniPoker extends JPanel{
 
 				addImage(z);
 			}	
-			
-/*			for(int z = turn; z < zz; z++) {
-				
-				for(int pp = 0; pp < 1; pp++) {
-					
-					////////////////////////////////////////////////��ǻ��
-					switch(players[1].cards2[z]) {
-					case 0 : System.out.println("a_Joker");
-					jocbo2[0][0]++;
-					break;
-					case 1 : System.err.println("b_Joker");
-					jocbo2[0][0]++;
-					break;
-					case 2 : System.out.println("J_1");
-					jocbo2[1][0]++;
-					break;
-					case 3 : System.out.println("J_2");
-					jocbo2[1][0]++;
-					break;
-					case 4 : System.out.println("J_3");
-					jocbo2[1][0]++;
-					break;
-					case 5 : System.out.println("J_4");
-					jocbo2[1][0]++;
-					break;
-					case 6 : System.out.println("Q_1");
-					jocbo2[2][0]++;
-					break;
-					case 7 : System.out.println("Q_2");
-					jocbo2[2][0]++;
-					break;
-					case 8 : System.out.println("Q_3");
-					jocbo2[2][0]++;
-					break;
-					case 9 : System.out.println("Q_4");
-					jocbo2[2][0]++;
-					break;
-					case 10 : System.out.println("K_1");
-					jocbo2[3][0]++;
-					break;
-					case 11 : System.out.println("K_2");
-					jocbo2[3][0]++;
-					break;
-					case 12 : System.out.println("K_3");
-					jocbo2[3][0]++;
-					break;
-					case 13 : System.out.println("K_4");
-					jocbo2[3][0]++;
-					break;
-					case 14 : System.out.println("r_Joker");
-					jocbo2[0][0]++;
-					break;
-					case 15 : System.out.println("A_1");
-					jocbo2[4][0]++;
-					break;
-					case 16 : System.out.println("A_2");
-					jocbo2[4][0]++;
-					break;
-					case 17 : System.out.println("A_3");
-					jocbo2[4][0]++;
-					break;
-					case 18 : System.out.println("A_4");
-					jocbo2[4][0]++;
-					break;
-					}
-				}
-
-				
-			}	*/
 			
 		}
 		
@@ -1022,19 +904,19 @@ public class MiniPoker extends JPanel{
 					jocbo2[2][0]++;
 					break;
 					case 7 : System.out.println("Q_2");
-					images2[z] = new ImageIcon("images/Q_2.png");
+					images2[z] = new ImageIcon("images/card/Q_2.png");
 					jocbo2[2][0]++;
 					break;
 					case 8 : System.out.println("Q_3");
-					images2[z] = new ImageIcon("images/Q_3.png");
+					images2[z] = new ImageIcon("images/card/Q_3.png");
 					jocbo2[2][0]++;
 					break;
 					case 9 : System.out.println("Q_4");
-					images2[z] = new ImageIcon("images/Q_4.png");
+					images2[z] = new ImageIcon("images/card/Q_4.png");
 					jocbo2[2][0]++;
 					break;
 					case 10 : System.out.println("K_1");
-					images2[z] = new ImageIcon("images/K_1.png");
+					images2[z] = new ImageIcon("images/card/K_1.png");
 					jocbo2[3][0]++;
 					break;
 					case 11 : System.out.println("K_2");
@@ -1248,6 +1130,7 @@ public class MiniPoker extends JPanel{
 		
 		@Override
 		public void run() {
+
 			for(int i = 1; i <= 4; i++) {
 				criticalData.comTurn(i);
 				
@@ -1278,7 +1161,7 @@ public class MiniPoker extends JPanel{
 				
 				try {
 					
-					Thread.sleep(1000);
+					Thread.sleep(3000);
 					
 					
 				} catch (InterruptedException e) {
@@ -1303,6 +1186,7 @@ public class MiniPoker extends JPanel{
 		
 		@Override
 		public void run() {
+
 			for(int i = 1; i <= 4; i++) {
 				criticalData.myTurn();
 				
@@ -1354,6 +1238,10 @@ public class MiniPoker extends JPanel{
 				}
 				
 				try {
+						
+						if(stop == false) {
+							interrupt();
+						}
 					
 						Thread.sleep(1000);
 						
