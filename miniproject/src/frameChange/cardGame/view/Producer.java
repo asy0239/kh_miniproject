@@ -1,4 +1,4 @@
-package miniProjectGame.cardGame.view;
+package frameChange.cardGame.view;
 
 public class Producer extends Thread{
 	

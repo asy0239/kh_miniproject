@@ -1,4 +1,4 @@
-package miniProjectGame.cardGame.view;
+package frameChange.cardGame.view;
 
 public class Consumer  extends Thread{
 	private Buffer criticalData;
