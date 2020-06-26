@@ -33,7 +33,7 @@ public class MartIn extends JPanel{
     class MyActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            win.change("maintown");
+            win.change("maintown",win);
         }
     }
 	

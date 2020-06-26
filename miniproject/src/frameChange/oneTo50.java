@@ -161,7 +161,7 @@ class oneTo50 extends JPanel implements ActionListener {
 			reset();
 		}
 		if (e.getSource() == exitBtn) {
-			win.change("playerGame");
+			win.change("playerGame",win);
 		}
 
 	}
