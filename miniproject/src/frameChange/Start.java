@@ -11,6 +11,7 @@ public class Start {
 		
 		mf.setSize(1024, 768);
 		mf.startpage = new StartPage(mf);
+
 		mf.add(mf.startpage);
 		
 		mf.setVisible(true);

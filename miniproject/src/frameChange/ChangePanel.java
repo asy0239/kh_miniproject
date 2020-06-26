@@ -9,6 +9,7 @@ public class ChangePanel extends JFrame{
 	public StartPage startpage;
 	public NewUser newuser;
 	public Login login;
+	public FindPage findpage;
 	public MainTown maintown;
 	public MartIn martin;
 	public ChangePanel mf;
@@ -42,7 +43,12 @@ public class ChangePanel extends JFrame{
 			revalidate();
 			repaint();
 		}
-		
+		if(panelName.equals("FindPage")) {
+			getContentPane().removeAll();
+			getContentPane().add(findpage);
+			revalidate();
+			repaint();
+		}
 		if(panelName.equals("maintown")) {
 			maintown = new MainTown(mf);
 			getContentPane().removeAll();
