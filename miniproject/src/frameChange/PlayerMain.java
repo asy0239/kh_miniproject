@@ -2,13 +2,20 @@ package frameChange;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
+
+import javafx.scene.layout.Background;
 
 public class PlayerMain extends JPanel implements KeyListener, Runnable{
    private Image screenImage;
@@ -82,9 +89,13 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
 
       x = 10;
       y = 10;
-
+      
+      
+      npcX = 20;
+      npcY = 20;
       npcArr[0] = 20;
       npcArr[1] = 20;
+      
       
       
       
@@ -100,7 +111,8 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
                   
                   Thread.sleep(100);
                   rd = (int)(Math.random()*4)+1;
-                  npcRan(rd , npcArr[0], npcArr[1]);
+//                  npcRan(rd , npcArr[0], npcArr[1]);
+                  goNPC();
  //                System.out.println(npcArr[0] +  " , " + npcArr[1]);
                } catch (InterruptedException e) {
                   // TODO Auto-generated catch block
@@ -112,6 +124,35 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
       th.start();
       th2.start();
    }
+   
+   public void goNPC() {
+
+	      // 유저 따라감
+	      int gapX, gapY;      // 좌표 차이
+	      gapX = x - npcArr[0];
+	      gapY = y - npcArr[1];
+
+	      if (gapX > 0) {
+	         if (checkXY2(npcArr[0] + perMove, npcArr[1])) {
+	            npcArr[0] += perMove;
+	         }
+	      } else if(gapX < 0) {
+	         if(checkXY2(npcArr[0] - perMove, npcArr[1])) {
+	         npcArr[0] -= perMove;
+	         }
+	      } 
+
+	      if (gapY > 0) {
+	         if (checkXY2(npcArr[0], npcArr[1]+ perMove)) {
+	            npcArr[1] += perMove;
+	         }
+	      } else if(gapY < 0) {
+	         if(checkXY2(npcArr[0], npcArr[1]- perMove)) {
+	         npcArr[1
+	                ] -= perMove;
+	         }
+	      } 
+	   }
    
    public boolean checkOut(int x , int y) {
       if (x < 10) {
@@ -188,6 +229,7 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
       g.drawImage(screenImage , 0, 0, null);
       g.drawImage(player, x, y, null);
       g.drawImage(imgNPC, npcArr[0],npcArr[1],null);
+      
 //      g.drawImage(imgNPC1, npcX1,npcY1,null);
 //      g.drawImage(imgNPC2, npcX2,npcY2,null);
 //      g.drawImage(imgNPC3, npcX3,npcY3,null);
@@ -197,6 +239,7 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
 	   g.drawImage(MoveImage(),x,y,null);
       g.drawImage(mainTownBackGround, 0, 0, null);
       g.drawImage(imgNPC, npcArr[0],npcArr[1], null);
+      
 //      g.drawImage(imgNPC1, npcX1,npcY1, null);
 //      g.drawImage(imgNPC2, npcX2,npcY2, null);
 //      g.drawImage(imgNPC3, npcX3,npcY3, null);
@@ -298,6 +341,7 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
    public void keyPressed(KeyEvent e) {
       // TODO Auto-generated method stub
 //         System.out.println(x + " + " + y);
+	   	 
          int keyCode = e.getKeyCode();
          
          switch (e.getKeyCode()) {
@@ -344,8 +388,12 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
                status = 4;
                return;
             }
+         case KeyEvent.VK_BACK_SPACE:
+        	 win.change("login");
          }
-
+                 	 
+        		 
+        	 
    }
 
    @Override
