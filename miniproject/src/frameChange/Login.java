@@ -107,7 +107,7 @@ public class Login extends JPanel{
 
 					if(id.equals(txtID.getText()) && pwd.equals(txtPwd.getText() )) {
 						JOptionPane.showMessageDialog(null, "로그인 성공");
-							win.change("playerMain");
+							win.change("playerMain",win);
 
 					} else {
 						JOptionPane.showMessageDialog(null, "로그인 실패");
@@ -127,8 +127,8 @@ public class Login extends JPanel{
 
 				if(id.equals(txtID.getText()) && pwd.equals(txtPwd.getText() )) {
 					JOptionPane.showMessageDialog(null, "로그인 성공");
-					
-						win.change("playerMain");
+
+						win.change("playerMain",win);
 
 				} else {
 					JOptionPane.showMessageDialog(null, "로그인 실패");
@@ -143,7 +143,7 @@ public class Login extends JPanel{
 	class BackActionListener implements ActionListener {     
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			win.change("startpage");
+			win.change("startpage",win);
 		}
 	}
 	
@@ -152,7 +152,7 @@ public class Login extends JPanel{
 	class SignActionListener implements ActionListener {     
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			win.change("newuser");
+			win.change("newuser",win);
 		}
 	}
 	
