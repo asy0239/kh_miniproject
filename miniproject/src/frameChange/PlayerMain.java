@@ -426,15 +426,16 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
    }
    
    public void inMart(int x, int y) {
-      if((x >= 850 && x <= 900) && (y >= 270 && y <= 290)) {
-         win.change("playerMart");
-      }
       if((x >= 170 && x <= 230) && (y >= 240 && y <= 270)) {
-         win.change("playerGame");
+         win.change("");	// 미정
       }
       
-      if((x >= 350 && x <= 400) && (y >= 270 && y <= 300)) {
-         win.change("maintown");
+      if((x >= 350 && x <= 400) && (y >= 260 && y <= 290)) {
+         win.change("playerMart");
+      }
+
+      if((x >= 850 && x <= 900) && (y >= 270 && y <= 290)) {
+    	  win.change("playerGame");
       }
    }
 }
