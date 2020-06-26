@@ -19,7 +19,7 @@ public class ChangePanel extends JFrame{
 	public MiniPoker miniPoker;
 	public oneTo50 oneTo50;
 	
-	public void change(String panelName, ChangePanel mf) {
+	public void change(String panelName) {
 		
 		if(panelName.equals("startpage")) {
 			getContentPane().removeAll();
@@ -29,7 +29,7 @@ public class ChangePanel extends JFrame{
 		}
 		
 		if(panelName.equals("newuser")) {
-			newuser = new NewUser(mf);
+			newuser = new NewUser(this);
 			getContentPane().removeAll();
 			getContentPane().add(newuser);
 			revalidate();
@@ -37,20 +37,21 @@ public class ChangePanel extends JFrame{
 		}
 		
 		if(panelName.equals("login")) {
-			login = new Login(mf);
+			login = new Login(this);
 			getContentPane().removeAll();
 			getContentPane().add(login);
 			revalidate();
 			repaint();
 		}
 		if(panelName.equals("FindPage")) {
+			findpage = new FindPage(this);
 			getContentPane().removeAll();
 			getContentPane().add(findpage);
 			revalidate();
 			repaint();
 		}
 		if(panelName.equals("maintown")) {
-			maintown = new MainTown(mf);
+			maintown = new MainTown(this);
 			getContentPane().removeAll();
 			getContentPane().add(maintown);
 			revalidate();
@@ -58,42 +59,42 @@ public class ChangePanel extends JFrame{
 		}
 		
 		if(panelName.equals("martin")) {
-			martin = new MartIn(mf);
+			martin = new MartIn(this);
 			getContentPane().removeAll();
 			getContentPane().add(martin);
 			revalidate();
 			repaint();
 		}
 		if(panelName.equals("playerMain")) {
-			playerMain = new PlayerMain(mf);
+			playerMain = new PlayerMain(this);
 			getContentPane().removeAll();
 			getContentPane().add(playerMain);
 			revalidate();
 			repaint();
 		}
 		if(panelName.equals("playerMart")) {
-			playerMart = new PlayerMart(mf);
+			playerMart = new PlayerMart(this);
 			getContentPane().removeAll();
 			getContentPane().add(playerMart);
 			revalidate();
 			repaint();
 		}
 		if(panelName.equals("playerGame")) {
-			playerGame = new PlayerGame(mf);
+			playerGame = new PlayerGame(this);
 			getContentPane().removeAll();
 			getContentPane().add(playerGame);
 			revalidate();
 			repaint();
 		}
 		if(panelName.equals("miniPoker")) {
-			miniPoker = new MiniPoker(mf);
+			miniPoker = new MiniPoker(this);
 			getContentPane().removeAll();
 			getContentPane().add(miniPoker);
 			revalidate();
 			repaint();
 		}
 		if(panelName.equals("oneTo50")) {
-			oneTo50 = new oneTo50(mf);
+			oneTo50 = new oneTo50(this);
 			getContentPane().removeAll();
 			getContentPane().add(oneTo50);
 			revalidate();

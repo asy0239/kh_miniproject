@@ -293,7 +293,7 @@ public class NewUser extends JPanel{
 				if(idTrue == true) {
 
 					JOptionPane.showMessageDialog(null, "회원가입 성공");
-					win.change("login",win);
+					win.change("login");
 
 					m = new Member();
 					m.setUserId(txtID.getText());
@@ -317,7 +317,7 @@ public class NewUser extends JPanel{
 	class BACKActionListener implements ActionListener {     
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			win.change("startpage",win);
+			win.change("startpage");
 		}
 	}
 
@@ -360,7 +360,7 @@ public class NewUser extends JPanel{
 
 			if(loginTrue == true) {
 				//JOptionPane.showMessageDialog(null, "회원가입 성공");
-				win.change("login",win);
+				win.change("login");
 
 			} else {			
 				//JOptionPane.showMessageDialog(null, "회원가입 실패");
@@ -373,7 +373,7 @@ public class NewUser extends JPanel{
 	class CancelActionListener implements ActionListener {     
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			win.change("startpage",win);
+			win.change("startpage");
 		}	
 	}
 

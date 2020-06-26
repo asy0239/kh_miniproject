@@ -51,7 +51,7 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
       this.win = win;
       
       this.setFocusable(true);
-      win.setTitle("player");
+      win.setTitle("playerMain");
       
       win.setSize(1024, 768);
       win.setResizable(false);
@@ -95,8 +95,6 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
       npcY = 20;
       npcArr[0] = 20;
       npcArr[1] = 20;
-      
-      
       
       
       this.addKeyListener(this);
@@ -389,7 +387,7 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
                return;
             }
          case KeyEvent.VK_BACK_SPACE:
-        	 win.change("login",win);
+        	 win.change("login");
          }
                  	 
         		 
@@ -475,15 +473,15 @@ public class PlayerMain extends JPanel implements KeyListener, Runnable{
    
    public void inMart(int x, int y) {
       if((x >= 170 && x <= 230) && (y >= 240 && y <= 270)) {
-         win.change("",win);	// 미정
+         win.change("");	// 미정
       }
       
       if((x >= 350 && x <= 400) && (y >= 260 && y <= 290)) {
-         win.change("playerMart",win);
+         win.change("playerMart");
       }
 
       if((x >= 850 && x <= 900) && (y >= 270 && y <= 290)) {
-    	  win.change("playerGame",win);
+    	  win.change("playerGame");
       }
    }
 }

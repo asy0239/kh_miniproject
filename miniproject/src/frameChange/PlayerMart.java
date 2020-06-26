@@ -364,7 +364,7 @@ public class PlayerMart extends JPanel implements KeyListener, Runnable {
 	public void inMart(int x, int y) {
 		if (x >= 900 && (y >= 120 && y <= 200)) {
 			makeProduct();
-			win.change("playerMain",win);
+			win.change("playerMain");
 		}
 	}
 

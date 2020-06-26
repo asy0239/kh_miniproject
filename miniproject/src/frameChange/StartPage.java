@@ -40,7 +40,7 @@ public class StartPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				win.change("login",win);
+				win.change("login");
 
 			}
 		});
@@ -48,7 +48,7 @@ public class StartPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				win.change("newuser",win);
+				win.change("newuser");
 
 			}
 		});

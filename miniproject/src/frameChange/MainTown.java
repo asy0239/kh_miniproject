@@ -39,7 +39,7 @@ public class MainTown extends JPanel{
         
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				win.change("startpage",win);
+				win.change("startpage");
 				
 			}
 		});
@@ -50,7 +50,7 @@ public class MainTown extends JPanel{
     class MyActionListener implements ActionListener {         // ��ư Ű ������ �г� 1�� ȣ��
         @Override
         public void actionPerformed(ActionEvent e) {
-            win.change("martin",win);
+            win.change("martin");
         }
     }
 }
