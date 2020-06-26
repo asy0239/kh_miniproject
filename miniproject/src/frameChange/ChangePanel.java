@@ -9,12 +9,14 @@ public class ChangePanel extends JFrame{
 	public StartPage startpage;
 	public NewUser newuser;
 	public Login login;
+	public MainTown maintown;
 	public MartIn martin;
 	public ChangePanel mf;
 	public PlayerMain playerMain;
 	public PlayerGame playerGame;
 	public PlayerMart playerMart;
 	public MiniPoker miniPoker;
+	public oneTo50 oneTo50;
 	
 	public void change(String panelName) {
 		
@@ -35,6 +37,13 @@ public class ChangePanel extends JFrame{
 		if(panelName.equals("login")) {
 			getContentPane().removeAll();
 			getContentPane().add(login);
+			revalidate();
+			repaint();
+		}
+		
+		if(panelName.equals("maintown")) {
+			getContentPane().removeAll();
+			getContentPane().add(maintown);
 			revalidate();
 			repaint();
 		}
@@ -66,6 +75,12 @@ public class ChangePanel extends JFrame{
 		if(panelName.equals("miniPoker")) {
 			getContentPane().removeAll();
 			getContentPane().add(miniPoker);
+			revalidate();
+			repaint();
+		}
+		if(panelName.equals("oneTo50")) {
+			getContentPane().removeAll();
+			getContentPane().add(oneTo50);
 			revalidate();
 			repaint();
 		}
