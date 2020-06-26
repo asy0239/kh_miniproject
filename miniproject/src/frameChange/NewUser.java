@@ -291,7 +291,7 @@ public class NewUser extends JPanel{
 
 				if(idTrue == true) {
 					JOptionPane.showMessageDialog(null, "회원가입 성공");
-					win.change("login");
+					win.change("login",win);
 
 					try {
 						BufferedWriter bw = new BufferedWriter(new FileWriter("member.txt", true));
@@ -328,7 +328,7 @@ public class NewUser extends JPanel{
 	class MyActionListener implements ActionListener {     
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			win.change("startpage");
+			win.change("startpage",win);
 		}
 	}
 
@@ -371,7 +371,7 @@ public class NewUser extends JPanel{
 
 			if(loginTrue == true) {
 				//JOptionPane.showMessageDialog(null, "회원가입 성공");
-				win.change("login");
+				win.change("login",win);
 
 			} else {			
 				//JOptionPane.showMessageDialog(null, "회원가입 실패");
@@ -384,7 +384,7 @@ public class NewUser extends JPanel{
 	class CancelActionListener implements ActionListener {     
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			win.change("startpage");
+			win.change("startpage",win);
 		}	
 	}
 

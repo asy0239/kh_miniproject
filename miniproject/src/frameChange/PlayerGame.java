@@ -306,15 +306,15 @@ public class PlayerGame extends JPanel implements KeyListener, Runnable{
    
    public void inMart(int x, int y) {
       if((x >= 420 && x <= 480) && (y >= 680 && y<= 700)) {
-	         win.change("playerMain");
+	         win.change("playerMain",win);
 	      }
    }
    public void game1(int x, int y) {
 	   if((x >= 240 && x <= 280) && ( y == 260)) {
-		   win.change("oneTo50");
+		   win.change("oneTo50",win);
 	   }
 	   if((x >= 560 && x <= 700) && (y == 260)) {
-		   win.change("miniPoker");
+		   win.change("miniPoker",win);
 		   
 	   }
    }
