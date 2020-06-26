@@ -74,7 +74,7 @@ public class PlainMail {
             //"<img src=\"http://www.rgagnon.com/images/jht.gif\">"
             multipart.addBodyPart(messageBodyPart);
             messageBodyPart = new MimeBodyPart();
-            DataSource fds = new FileDataSource("C:\\images\\image.jpg");
+            DataSource fds = new FileDataSource("C:\\images\\mail.jpg"); //이미지 이름 수정함
             messageBodyPart.setDataHandler(new DataHandler(fds));
             messageBodyPart.setHeader("Content-ID", "<image>");
             

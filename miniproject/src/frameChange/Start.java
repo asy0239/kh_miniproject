@@ -11,6 +11,7 @@ public class Start {
 		mf.startpage = new StartPage(mf);
 		mf.newuser = new NewUser(mf);
 		mf.login = new Login(mf);
+		mf.findpage = new FindPage(mf);
 		mf.martin = new MartIn(mf);
 		mf.playerMain = new PlayerMain(mf);
 		mf.playerMart = new PlayerMart(mf);

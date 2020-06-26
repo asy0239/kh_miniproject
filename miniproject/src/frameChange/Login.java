@@ -28,7 +28,7 @@ public class Login extends JPanel{
 		
 		this.setBackground(Color.BLACK);
 		
-		JLabel label = new JLabel(new ImageIcon(new ImageIcon("images/main/logo.png").getImage().getScaledInstance(640, 230, 0)));
+		JLabel label = new JLabel(new ImageIcon(new ImageIcon("images/main/logo.png").getImage().getScaledInstance(800, 230, 0)));
 		add(label).setBounds(105, 50, 800, 500);
 
 		//아이디
@@ -56,14 +56,16 @@ public class Login extends JPanel{
 		add(loginbtn).setBounds(590, 469, 170, 100);
 		add(loginbtn);
 		
-		//아이디, 비밀번호 찾기
-		JButton findbtn = new JButton("ID/PW 찾기");
-		add(findbtn).setBounds(755, 660, 100, 30);
 		
 		//회원가입
 		JButton signupbtn = new JButton("회원가입");
 		add(signupbtn).setBounds(875, 660, 100, 30);
 		signupbtn.addActionListener(new SignActionListener());
+		
+		//아이디, 비밀번호 찾기
+		JButton findbtn = new JButton("ID/PW 찾기");
+		add(findbtn).setBounds(755, 660, 100, 30);
+		findbtn.addActionListener(new FindActionListener());
 		
 		//텍스트 크기
 		id.setFont(new Font("Tahoma", Font.BOLD, 25));
@@ -120,11 +122,12 @@ public class Login extends JPanel{
 		loginbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				String id = "kh1234";
-				String pwd = "123456";
+//				String id = "kh1234";
+//				String pwd = "123456";
 
 				if(id.equals(txtID.getText()) && pwd.equals(txtPwd.getText() )) {
 					JOptionPane.showMessageDialog(null, "로그인 성공");
+					
 						win.change("playerMain");
 
 				} else {
@@ -144,10 +147,20 @@ public class Login extends JPanel{
 		}
 	}
 	
+	
+	//회원가입
 	class SignActionListener implements ActionListener {     
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			win.change("newuser");
+		}
+	}
+	
+	//아이디, 비밀번호 찾기
+	class FindActionListener implements ActionListener {     
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			win.change("FindPage");
 		}
 	}
 	

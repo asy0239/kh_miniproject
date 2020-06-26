@@ -6,11 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -31,6 +31,7 @@ public class NewUser extends JPanel{
 	private ChangePanel win;
 
 	public PlainMail pm = new PlainMail();
+	public Member m;
 
 	public NewUser(ChangePanel win) {
 
@@ -96,7 +97,7 @@ public class NewUser extends JPanel{
 		//뒤로가기
 		JButton backbtn = new JButton("BACK");
 		add(backbtn).setBounds(35, 30, 80, 30);
-		backbtn.addActionListener(new MyActionListener());
+		backbtn.addActionListener(new BACKActionListener());
 
 		//중복검사
 		JButton idbtn = new JButton("중복검사");
@@ -290,42 +291,30 @@ public class NewUser extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 
 				if(idTrue == true) {
+
 					JOptionPane.showMessageDialog(null, "회원가입 성공");
 					win.change("login");
 
-					try {
-						BufferedWriter bw = new BufferedWriter(new FileWriter("member.txt", true));
-						bw.write(txtID.getText() + "/");
-						bw.write(txtPwd.getText() + "/");
-						bw.write(txtPwd2.getText() + "/");
-						bw.write(txtName.getText() + "/");
-						bw.write(txtBirth.getText() + "/");
-						bw.write(txtEmail.getText() + "/");
-						bw.write(txtPhone.getText() + "\n");
+					m = new Member();
+					m.setUserId(txtID.getText());
+					m.setUserPwd(txtPwd.getText());
 
-						//BufferedReader br = new BufferedReader(new FileReader("member.txt", true));
-						//br.read(txtID.setText() + "/" );
-
-						bw.flush();
-
-
-
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
+					fileSave();
+					fileOpen();
 
 				} else {
+
 					JOptionPane.showMessageDialog(null, "회원가입 실패");
+
 				}
 
 			}
 		});
-
 	}
 
 	//패널변경, 마우스이벤트
 	//뒤로가기
-	class MyActionListener implements ActionListener {     
+	class BACKActionListener implements ActionListener {     
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			win.change("startpage");
@@ -388,5 +377,31 @@ public class NewUser extends JPanel{
 		}	
 	}
 
+	public void fileSave() {
+
+		try (ObjectOutputStream object = 
+				new ObjectOutputStream(
+						new FileOutputStream("member.txt"));) {
+
+			object.writeObject(m);
+			object.flush(); 
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void fileOpen() {
+
+		try(ObjectInputStream objIn = new ObjectInputStream(new FileInputStream("member.txt"));) {
+
+			System.out.println(objIn.readObject());
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+	}
 
 }
