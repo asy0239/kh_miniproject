@@ -251,9 +251,9 @@ public class MiniPoker extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				t1.start(); t2.start();
+
 				System.out.println("하프");
-//				sound("sound/music/half.wav");
+				sound("sound/music/half.wav");
 				panDon1 += panDon2 / 2;
 				myMoney1 -= panDon2 / 2;
 				panDon.setText(Integer.toString(panDon1));
